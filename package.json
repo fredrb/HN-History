@@ -1,0 +1,13 @@
+{
+  "name": "HN-History",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "loadash": "^1.0.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "underscore": "^1.9.1",
+    "unix-timestamp": "^0.2.0"
+  }
+}
