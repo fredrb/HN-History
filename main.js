@@ -50,7 +50,7 @@ const getHistoricalPosts = async (queryString, fromYear) => {
       }
     })
     .map((years) => {
-      console.log(`Triggering requests for year ${years.year}`);
+      console.log(`Triggering requests for year ${years.year}: ${years.data}`);
       return Promise.all(years.data.map(url => request.get(url))).then((data) => {
         results = results.concat(data);
       })
@@ -76,4 +76,4 @@ const getHistoricalPosts = async (queryString, fromYear) => {
   })
 }
 
-getHistoricalPosts("Serverless", 2015);
+getHistoricalPosts("Serverless Computing", 2019);

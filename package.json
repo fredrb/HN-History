@@ -1,24 +1,36 @@
 {
-  "name": "HN-History",
+  "name": "herodotus-search",
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "start:dev": "nodemon index.js",
+    "test": "npx standard && mocha ./test/**/*.test.js",
+    "test:external": "mocha ./test/external/**/*.js",
+    "standard": "standard --fix"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "loadash": "^1.0.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
+    "standard": "^14.3.1",
     "underscore": "^1.9.1",
     "unix-timestamp": "^0.2.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "mocha": "^6.2.2",
     "nodemon": "^1.19.4",
     "sinon": "^7.5.0"
+  },
+  "standard": {
+    "ignore": [
+      "main.js"
+    ],
+    "env": [ "mocha" ]
   }
 }
