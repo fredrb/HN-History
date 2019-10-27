@@ -14,6 +14,7 @@ describe('=== TEST /v1/source/hacker-news API ===', () => {
     json.results.items.forEach(i => {
       const date = new Date(i.created_at)
       expect(date.getUTCFullYear()).to.be.equal(year)
+      return expect(i.points).not.to.be.undefined
     })
   }
 

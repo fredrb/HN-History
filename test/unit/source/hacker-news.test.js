@@ -23,7 +23,7 @@ context('#hacker-news source', () => {
     }
 
     const givenURL = (topic, from, to) => {
-      return `https://hn.algolia.com/api/v1/search?query=${topic}&numericFilters=["created_at_i>=${from}","created_at_i<${to}"]`
+      return `https://hn.algolia.com/api/v1/search?query=${topic}&numericFilters=["created_at_i>=${from}","created_at_i<${to}"]&tags=["story"]`
     }
 
     it('should call @fetchByYear', async () => {
