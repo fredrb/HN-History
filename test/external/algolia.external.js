@@ -18,6 +18,7 @@ context('Algolia API Test', () => {
     const results = JSON.parse(payload)
 
     expect(results).to.have.property('hits')
+    expect(results.nbHits).to.be.greaterThan(1)
     expect(results.hits.length).to.be.greaterThan(1)
     ALGOLIA_PROPERTIES.forEach(p => expect(results.hits[0], `Missing property ${p}`).to.have.property(p))
   })
