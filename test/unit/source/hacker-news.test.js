@@ -43,6 +43,14 @@ context('#hacker-news source', () => {
       mockResolve(givenURL('example', CONSTANTS.jan2018, CONSTANTS.jan2019),
         CONSTANTS.SEARCH_EXAMPLE)
       await source.fetchByYear('example', 2018)
+      mock.verify()
+    })
+
+    it('should parse year value in @fetchByYear', async () => {
+      mockResolve(givenURL('example', CONSTANTS.jan2017, CONSTANTS.jan2018),
+        CONSTANTS.SEARCH_EXAMPLE)
+      await source.fetchByYear('example', '2017')
+      mock.verify()
     })
 
     it('should return response with properties [created_at, title, url, points, num_comments, autor]', async () => {
@@ -85,11 +93,11 @@ context('#hacker-news source', () => {
       expect(result.total).to.be.equal(2)
     })
 
-    it('should return maximum of 5 items in the result object', async () => {
-      mockResolve(givenURL('example', CONSTANTS.jan2019, CONSTANTS.jan2020),
-        CONSTANTS.LARGE_RESULT_EXAMPLE)
+    it('should return URL requested on payload', async () => {
+      const url = givenURL('example', CONSTANTS.jan2019, CONSTANTS.jan2020)
+      mockResolve(url, CONSTANTS.SEARCH_EXAMPLE)
       const result = await source.fetchByYear('example', 2019)
-      expect(result.items.length).to.be.equal(5)
+      expect(result.request).to.be.equal(url)
     })
   })
 

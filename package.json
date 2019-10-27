@@ -6,8 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "start:dev": "nodemon index.js",
-    "test": "npm run test:unit && npm run test:external",
-    "test:unit": "npx standard && mocha ./test/**/*.test.js",
+    "test": "npm run test:unit && npm run test:integration && npm run test:external",
+    "test:unit": "npm run standard && mocha ./test/unit/**/*.test.js",
+    "test:integration": "mocha ./test/integration/**/*.js",
     "test:external": "mocha ./test/external/**/*.js",
     "standard": "standard --fix"
   },
