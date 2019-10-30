@@ -11,6 +11,14 @@ v1.get('/', (req, res) => {
   })
 })
 
+v1.get('/sources', (req, res) => {
+  res.send({
+    sources: [
+      'hacker-news'
+    ]
+  })
+})
+
 v1.get('/source/hacker-news/:keyword/:year', async (req, res) => {
   try {
     const results = await hn.fetchByYear(req.params.keyword, parseInt(req.params.year))
