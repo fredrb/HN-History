@@ -12,6 +12,7 @@ const TOPIC_PREFIX = 'https://news.ycombinator.com/item?id='
  * @returns {
  *  total (Number): Total number of hits
  *  request (String): Request triggered to original API
+ *  year (Number): Year passed as parameter
  *  items (Array): {
  *    created_at (Date): Creation Date
  *    title (String): Item title
@@ -39,6 +40,7 @@ class HackerNewsSource {
     const items = results.hits.map(this._mapItems)
     return {
       items,
+      year,
       total: results.nbHits,
       request: url
     }
