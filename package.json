@@ -19,7 +19,7 @@
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "standard": "^14.3.1",
-    "underscore": "^1.9.1",
+    "underscore": "^1.12.1",
     "unix-timestamp": "^0.2.0"
   },
   "devDependencies": {
